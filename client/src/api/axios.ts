@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+// Use the environment variable if available, otherwise default to localhost (for testing)
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+
 const api = axios.create({
-  baseURL: 'http://localhost:4000/api', // Connects to your backend
+  baseURL: baseURL,
 });
 
-// Automatically add the token to every request if we have one
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
