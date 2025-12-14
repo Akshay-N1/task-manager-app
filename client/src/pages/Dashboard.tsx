@@ -92,9 +92,13 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar */}
-      <nav className="bg-white shadow-sm">
+   <nav className="bg-white shadow-sm">
         <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-4">
-          <h1 className="text-xl font-bold text-gray-800">Task Manager</h1>
+          <div>
+             <h1 className="text-xl font-bold text-gray-800">Task Manager</h1>
+             {/* We use the 'user' variable here, so TypeScript is happy! */}
+             <p className="text-sm text-gray-500">Welcome, {user?.name || 'User'}</p>
+          </div>
           <button onClick={handleLogout} className="text-sm text-red-500 hover:text-red-700">
             Logout
           </button>
